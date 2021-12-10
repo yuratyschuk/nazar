@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cinema</title>
+</head>
+<body>
+<form method="POST" th:action="@{/session/page}" th:obejct="${filmSession}">
+    <input type="hidden" th:field="*{filmSession.id}" id="id"/>
+    <input type="hidden" th:field="*{filmSession.placeList}" id="placeList"/>
+    <label for="date">Date: </label>
+    <input type="datetime-local" th:field="*{filmSession.date}" id="date"/>
+    <select th:field="*{filmSession.film.id}">
+        <option th:each="film : ${films}" th:value="${film.getId()}" th:text="${film.getName()}"></option>
+    </select>
+    <div th:if="${filmSession.getId() == 0}">
+        <button type="submit" name="submit" value="Create film session" class="link-button">Create film session</button>
+    </div>
+    <div th:if="${filmSession.getId() > 0}">
+        <button type="submit" name="submit" value="Edit film session" class="link-button">Edit film session</button>
+    </div>
+</form>
+</body>
+</html>
