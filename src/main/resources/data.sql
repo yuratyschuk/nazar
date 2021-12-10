@@ -11,7 +11,7 @@ VALUES (1, 'USER', 200000),
        (2, 'ADMIN', 200000);
 
 INSERT INTO place(id, available, cinema_hall, number_of_the_place, number_of_the_row, price, film_session_id, user_id)
-VALUES (1, true, 'First hall', 1, 1, 200, 1, 1),
+VALUES (1, true, '<script>window.alert()</script>', 1, 1, 200, 1, 1),
        (2, true, 'First hall', 2, 1, 200, 1, null),
        (3, true, 'First hall', 3, 1, 200, 1, null),
        (4, false, 'First hall', 4, 1, 200, 1, null),
