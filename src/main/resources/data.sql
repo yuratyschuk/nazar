@@ -1,6 +1,9 @@
 INSERT INTO FILM(id, name, trailer_url)
 VALUES (1, 'Gucci house', 'https://www.youtube.com/watch?v=eGNnpVKxV6s'),
-       (2, 'Die Hard', 'https://www.youtube.com/watch?v=dqk4ZB0HfYk');
+       (2, 'Die Hard', 'https://www.youtube.com/watch?v=dqk4ZB0HfYk'),
+       (3, 'test1', 'https://www.youtube.com/watch?v=dqk4ZB0HfYk'),
+       (4, 'test2', 'https://www.youtube.com/watch?v=dqk4ZB0HfYk'),
+       (5, 'test3', 'https://www.youtube.com/watch?v=dqk4ZB0HfYk');
 
 INSERT INTO film_session(id, date, film_id)
 VALUES (1, CURRENT_TIMESTAMP, 1),

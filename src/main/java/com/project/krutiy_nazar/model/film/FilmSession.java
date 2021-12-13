@@ -22,11 +22,11 @@ public class FilmSession {
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime date;
 
-    @ManyToOne
+    @ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST})
     @ToString.Exclude
     private Film film = new Film();
 
-    @OneToMany(orphanRemoval = true)
+    @OneToMany(cascade=CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "film_session_id")
     private List<Place> placeList;
 }

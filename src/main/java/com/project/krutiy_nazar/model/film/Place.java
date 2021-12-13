@@ -1,5 +1,6 @@
 package com.project.krutiy_nazar.model.film;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.project.krutiy_nazar.model.user.User;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,10 +29,11 @@ public class Place {
     private int price;
 
     @ManyToOne
+    @JsonIgnore
     @ToString.Exclude
     private FilmSession filmSession;
 
-    @ManyToOne
+    @ManyToOne(cascade={CascadeType.MERGE, CascadeType.PERSIST})
     private User user;
 
     @Column(nullable = false)

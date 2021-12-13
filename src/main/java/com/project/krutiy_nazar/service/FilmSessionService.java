@@ -1,6 +1,5 @@
 package com.project.krutiy_nazar.service;
 
-import com.project.krutiy_nazar.model.film.Film;
 import com.project.krutiy_nazar.model.film.FilmSession;
 import com.project.krutiy_nazar.repository.FilmSessionRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +12,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class FilmSessionService {
 
-    private final FilmService filmService;
     private final FilmSessionRepository filmSessionRepository;
 
     public List<FilmSession> getAll() {
@@ -24,13 +22,8 @@ public class FilmSessionService {
         return filmSessionRepository.findById(id);
     }
 
-    public void save(FilmSession filmSession) {
-        FilmSession filmSessionToSave = getById(filmSession.getId()).orElse(new FilmSession());
-        Film filmToFetch = filmService.getById(filmSession.getFilm().getId()).orElse(null);
-
-        filmSessionToSave.setFilm(filmToFetch);
-        filmSessionToSave.setDate(filmSession.getDate());
-        filmSessionRepository.save(filmSessionToSave);
+    public FilmSession save(FilmSession filmSession) {
+        return filmSessionRepository.save(filmSession);
     }
 
     public void delete(long id) {
