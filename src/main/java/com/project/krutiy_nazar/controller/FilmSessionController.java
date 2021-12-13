@@ -31,13 +31,13 @@ public class FilmSessionController {
 
     @PutMapping("/")
     @ApiOperation(value = "Film session controller", notes = "Updates session")
-    public FilmSession update(@RequestBody FilmSession filmSession) {
+    public Long update(@RequestBody FilmSession filmSession) {
         return filmSessionService.save(filmSession);
     }
 
     @PostMapping("/")
     @ApiOperation(value = "Film session controller", notes = "Creates film session")
-    public FilmSession create(@RequestBody FilmSession filmSession) {
+    public Long create(@RequestBody FilmSession filmSession) {
         return filmSessionService.save(filmSession);
     }
 

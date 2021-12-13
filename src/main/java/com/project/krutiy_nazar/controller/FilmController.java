@@ -6,10 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "Film controller")
 @RestController
@@ -32,5 +29,17 @@ public class FilmController {
                                    @RequestParam(defaultValue = "0") int page,
                                    @RequestParam(defaultValue = "3") int size) {
         return filmService.findByName(name, page, size);
+    }
+
+    @PostMapping
+    @ApiOperation(value = "Film controller", notes = "Save film")
+    public Long create(@RequestBody Film film) {
+        return filmService.save(film);
+    }
+
+    @GetMapping("/{id}")
+    @ApiOperation(value = "Film controller", notes = "Get film by id")
+    public Film getById(@PathVariable Long id) {
+        return filmService.getById(id).orElse(null);
     }
 }
